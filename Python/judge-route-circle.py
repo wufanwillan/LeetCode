@@ -21,14 +21,15 @@ class Solution(object):
         :type moves: str
         :rtype: bool
         """
-        v, h = 0, 0
+        h,v=0,0
         for move in moves:
-            if move == 'U':
-                v += 1
-            elif move == 'D':
-                v -= 1
-            elif move == 'R':
-                h += 1
-            elif move == 'L':
-                h -= 1
-        return v == 0 and h == 0
+            if move>'L':
+                if move>'R':
+                    v+=1
+                else:
+                    h+=1
+            elif move>'D':
+                h-=1
+            else:
+                v-=1
+        return not(h|v)
