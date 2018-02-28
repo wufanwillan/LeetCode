@@ -39,3 +39,28 @@ class Solution(object):
             if curr == n % 2: return False
             n, curr = divmod(n, 2)
         return True
+
+        def hasAlternatingBits_2(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        
+        """
+        Type Check:
+        Assure the input value is a positive integer
+        """
+        
+        if isinstance(n,int) and n>0:
+            
+            """
+            Main Function
+            """
+            
+            _n_back_bit=n>>1
+            _bit_length=n.bit_length()
+            
+            return (n^_n_back_bit)==(1<<_bit_length)-1
+            
+        else:
+            return True
